@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://oauth.swan.io/.well-known/openid-configuration
+docs: https://docs.swan.io/developers/using-api/authentication
+schemes:
+- name: OAuth2
+  authorizationUrl: https://oauth.swan.io/oauth2/auth
+  tokenUrl: https://oauth.swan.io/oauth2/token
+  flows: [authorizationCode, clientCredentials, refreshToken]
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token identifying the user.
+  flows: [authorizationCode]
+- scope: profile
+  description: Access to the user's basic profile claims.
+  flows: [authorizationCode]
+- scope: email
+  description: Access to the user's email address.
+  flows: [authorizationCode]
+- scope: offline_access
+  description: Issue a refresh token so the client can obtain new access tokens without re-consent.
+  flows: [authorizationCode]
+- scope: offline
+  description: Legacy alias for offline refresh-token access.
+  flows: [authorizationCode]
+notes: >-
+  Scopes are the OpenID Connect scopes advertised by Swan's authorization server
+  discovery document (scopes_supported). Project access tokens obtained via the
+  client_credentials grant are issued with project-level access and an empty
+  scope string; fine-grained authorization for those tokens is governed by the
+  project's configured permissions and by consent granted through user tokens,
+  not by OAuth scope values. Sensitive mutations require a user access token (or
+  a project token impersonating a user) plus explicit user consent.

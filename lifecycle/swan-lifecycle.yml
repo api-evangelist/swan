@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/changelog
+versioning:
+  scheme: >-
+    Continuous, non-breaking evolution of a single GraphQL API. New fields,
+    mutations and enum values are added over time; a dated changelog is the
+    source of truth.
+  docs: https://docs.swan.io/changelog
+deprecation:
+  policy: >-
+    Swan announces deprecations in the changelog and maintains dated timelines
+    for deprecated mutations (e.g. the onboarding deprecated-mutation timeline),
+    giving partners advance notice and migration windows before removal.
+  timeline_docs: https://docs.swan.io/topics/onboarding
+  changelog: https://docs.swan.io/changelog
+status_page: https://status.swan.io
+sla:
+  notes: >-
+    Swan operates as a licensed EMI (ACPR 86245) with a public system status
+    page; commercial SLA terms are agreed per partner contract.
+deprecated_operations: []
+notes: >-
+  No OpenAPI is published (the API is GraphQL), so deprecated operations are
+  tracked from the changelog and per-topic deprecation timelines rather than
+  derived from a spec.

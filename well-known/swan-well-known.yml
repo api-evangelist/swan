@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of Swan OAuth/API hosts
+hosts:
+- host: https://oauth.swan.io
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: swan-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://api.swan.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://swan.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+notes: >-
+  oauth.swan.io publishes a full OpenID Connect discovery document (saved
+  verbatim as swan-openid-configuration.json). No security.txt or api-catalog
+  was served on the website or API hosts at probe time.

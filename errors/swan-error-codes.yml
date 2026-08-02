@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/developers/using-api + https://api-reference.swan.io
+format: graphql-union-rejection
+description: >-
+  Swan's GraphQL API models errors as typed rejection objects returned inside a
+  mutation's union payload, rather than as HTTP status codes or RFC 9457 problem
+  details. A mutation returns a union of a success payload and one or more
+  rejection types; the client selects the relevant type with an inline fragment
+  (e.g. `... on ForbiddenRejection { message __typename }`). Transport-level
+  authentication failures still surface as HTTP 401 Unauthorized.
+envelope:
+  pattern: union payload with __typename discriminator
+  success_suffix: SuccessPayload
+  rejection_suffix: Rejection
+error_types:
+- type: ForbiddenRejection
+  meaning: The authenticated principal is not permitted to perform the operation.
+  action: Check the token type, membership permissions and required consent.
+- type: ValidationRejection
+  meaning: Input failed validation.
+  action: Correct the offending input fields reported in the rejection.
+transport_errors:
+- status: 401
+  title: Unauthorized
+  meaning: Missing, invalid or expired access token (invalid grant / authentication failure).
+  action: Obtain or refresh an OAuth 2.0 access token and retry.
+notes: >-
+  Rejection type names above are examples observed in Swan's documentation and
+  API reference; the full, authoritative set of rejection types per mutation is
+  defined in the GraphQL schema at api-reference.swan.io. No error codes are
+  invented here.

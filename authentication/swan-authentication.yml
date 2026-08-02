@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/developers/using-api/authentication
+docs: https://docs.swan.io/developers/using-api/authentication
+oidc_discovery: https://oauth.swan.io/.well-known/openid-configuration
+summary:
+  types: [oauth2, http]
+  http_scheme: bearer
+  oauth2_flows: [clientCredentials, authorizationCode, refreshToken]
+description: >-
+  Swan uses OAuth 2.0 (RFC 6749) with Bearer token authentication (RFC 6750).
+  Tokens are supplied in an HTTP Authorization header as
+  `Authorization: Bearer {access token}`. There are two token types: project
+  access tokens (client_credentials grant, project-level access, valid one hour)
+  and user access tokens (authorization_code grant, act on behalf of an
+  individual user, valid one hour, refreshable). A project token can also
+  impersonate a user to perform sensitive mutations. User tokens (and
+  impersonating project tokens) cannot call `transactions` queries.
+schemes:
+- name: OAuth2
+  type: oauth2
+  authorization_endpoint: https://oauth.swan.io/oauth2/auth
+  token_endpoint: https://oauth.swan.io/oauth2/token
+  revocation_endpoint: https://oauth.swan.io/oauth2/revoke
+  userinfo_endpoint: https://oauth.swan.io/userinfo
+  jwks_uri: https://oauth.swan.io/.well-known/jwks.json
+  grant_types: [client_credentials, authorization_code, refresh_token, implicit]
+  token_endpoint_auth_methods: [client_secret_post, client_secret_basic, private_key_jwt, none]
+  pkce_supported: true
+  code_challenge_methods: [S256, plain]
+  flows:
+  - flow: clientCredentials
+    use: Project access token (project-level API access)
+    token_lifetime_seconds: 3600
+  - flow: authorizationCode
+    use: User access token (act on behalf of a user; required for sensitive mutations)
+    token_lifetime_seconds: 3600
+    refreshable: true
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  description: OAuth 2.0 access token presented as a Bearer token to the GraphQL API.
+notes: >-
+  Single Device Authentication (a 6-digit SMS verification code) rolled out
+  across all OAuth 2.0 flows starting May 2026, replacing the previous clickable
+  SMS link.

@@ -1,7 +1,23 @@
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
 aid: swan
 name: Swan
-description: Swan is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Swan is a European banking-as-a-service (BaaS) and embedded-finance platform
+  that lets software companies embed banking features -- business accounts with
+  native IBANs, physical and virtual card programs, SEPA payments, direct
+  debits, and white-labelled onboarding -- directly into their products through
+  a single GraphQL API. Swan operates as a licensed electronic money
+  institution authorised by France's ACPR (identifier 86245); client deposits
+  are safeguarded with BNP Paribas and covered by the French FGDR deposit
+  guarantee. Developers integrate via an OAuth 2.0 protected Partner GraphQL API
+  (sandbox and live), a Testing API and Event Simulator for end-to-end sandbox
+  testing, webhooks for external events, and first-party React/React Native
+  tooling. Swan has issued over one million cards and serves platforms across
+  accounting, treasury, proptech, HR-tech and travel.
 url: https://raw.githubusercontent.com/api-evangelist/swan/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +25,126 @@ x-backed-by:
 - a16z
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
+image: https://avatars.githubusercontent.com/u/47886602?v=4
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Banking as a Service
+- Embedded Finance
+- Fintech
+- Payments
+- Cards
+- SEPA
+- GraphQL
+- Europe
+- Accounts
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Swan Partner API
+  description: >-
+    Swan's Partner API is a GraphQL API for embedding banking: accounts and
+    account holders, memberships, cards, SEPA credit transfers and direct
+    debits, standing orders, merchant payments, onboarding, and consent. It is
+    protected with OAuth 2.0 bearer authentication (project access tokens via
+    client_credentials, user access tokens via authorization_code) and offers
+    matching sandbox and live environments plus a Testing API for simulation.
+  humanURL: https://docs.swan.io/api
+  baseURL: https://api.swan.io/live-partner/graphql
+  tags:
+  - GraphQL
+  - Banking
+  - Payments
+  - Cards
+  - Accounts
+  properties:
+  - type: GraphQL
+    url: https://api.swan.io/live-partner/graphql
+  - type: APIReference
+    url: https://api-reference.swan.io/
+  - type: Documentation
+    url: https://docs.swan.io/
+common:
+- type: DeveloperPortal
+  url: https://docs.swan.io/
+- type: Documentation
+  url: https://docs.swan.io/
+- type: APIReference
+  url: https://api-reference.swan.io/
+- type: GettingStarted
+  url: https://docs.swan.io/developers
+- type: Console
+  url: https://explorer.swan.io/
+- type: Support
+  url: https://support.swan.io/hc/en-150
+- type: Blog
+  url: https://swan.io/blog
+- type: GitHubOrganization
+  url: https://github.com/swan-io
+- type: Pricing
+  url: https://swan.io/pricing
+- type: SignUp
+  url: https://swan.io/start-now
+- type: Login
+  url: https://swan.io/sign-in
+- type: TermsOfService
+  url: https://swan.io/termsandconditions
+- type: PrivacyPolicy
+  url: https://swan.io/privacy-policy
+- type: StatusPage
+  url: https://status.swan.io
+- type: TrustCenter
+  url: https://trust.swan.io/
+- type: Compliance
+  url: https://trust.swan.io/
+- type: Packages
+  url: packages/swan-packages.yml
+- type: SDKs
+  url: packages/swan-packages.yml
+- type: WellKnown
+  url: well-known/swan-well-known.yml
+- type: Authentication
+  url: authentication/swan-authentication.yml
+- type: OAuthScopes
+  url: scopes/swan-scopes.yml
+- type: Conventions
+  url: conventions/swan-conventions.yml
+- type: Webhooks
+  url: asyncapi/swan-webhooks.yml
+- type: ErrorCatalog
+  url: errors/swan-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/swan-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/swan-lifecycle.yml
+- type: ChangeLog
+  url: changelog/swan-changelog.yml
+- type: Sandbox
+  url: sandbox/swan-sandbox.yml
+- type: Components
+  url: components/swan-components.yml
+- type: Conformance
+  url: conformance/swan-conformance.yml
+- type: DomainSecurity
+  url: security/swan-domain-security.yml
+- type: MCPServer
+  url: mcp/swan-mcp.yml
+- type: LLMsTxt
+  url: llms/swan-llms.txt

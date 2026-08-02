@@ -1,0 +1,14 @@
+{
+  "repo": "swan",
+  "feeds": [
+    {
+      "source": "https://support.swan.io/hc/en-150",
+      "feed_url": "https://support.swan.io/hc/en-150",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-01T15:49:00Z"
+}

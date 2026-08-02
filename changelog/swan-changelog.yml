@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/changelog
+scheme: dated release notes (roughly bi-weekly)
+url: https://docs.swan.io/changelog
+current_as_of: '2026-07-16'
+entries:
+- date: '2026-07-16'
+  type: release
+  breaking: false
+  highlights:
+  - Added cancelPhysicalCardRenewal mutation to stop a physical card auto-renewing (in ToRenew status) without canceling it.
+  - Added addDigitalCards to add multiple cards to Apple Pay or Google Pay in one call.
+- date: '2026-06-18'
+  type: release
+  breaking: false
+  highlights:
+  - Public onboarding links can now be controlled separately for account creation vs. updates.
+  - Accounts closed before 2 April 2026 back-filled to 2026 closure reason codes for consistent history.
+  - Capital deposits canceled before 2 April 2026 back-filled to 2026 cancelation reason codes.
+- date: '2026-05-07'
+  type: release
+  breaking: false
+  highlights:
+  - Standing Orders now execute on their lastExecutionDate value (from June 4).
+  - Single Device Authentication (6-digit SMS code) rolling out to all OAuth2 flows from May 25, replacing clickable SMS links.
+notes: >-
+  Recent window only; the live dated changelog at docs.swan.io/changelog is the
+  source of truth and runs back to 2021.

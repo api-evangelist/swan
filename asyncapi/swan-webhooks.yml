@@ -1,0 +1,106 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/developers/using-api/webhooks
+spec_type: Webhooks
+transport: https-webhook
+description: >-
+  Swan notifies partners of events -- especially external events not initiated
+  by the partner (incoming transfers, verification changes, consent decisions)
+  -- via HTTPS webhooks. Partners subscribe to specific event types with the
+  addWebhookSubscription GraphQL mutation, providing an endpoint and an optional
+  secret. Swan POSTs to the endpoint; the endpoint must return 200 OK within 10
+  seconds. Webhook payloads carry only the event and resource identifiers (no
+  sensitive data); the partner queries the API for full details.
+delivery:
+  method: POST
+  expected_response: 200 OK
+  reply_deadline_seconds: 10
+  retry: every 30 seconds, up to 7 times
+  latency: near real time, up to ~10 minutes after the action
+  subscription_limits:
+    sandbox: 10 subscriptions per event
+    live: 5 subscriptions per event
+security:
+  signature_header: x-swan-secret
+  mechanism: >-
+    Each request includes a shared secret in the x-swan-secret header, set per
+    subscription. Reject requests where the secret is missing or incorrect.
+subscription:
+  mutation: addWebhookSubscription
+  configured_via: Dashboard > Developers > Webhooks or GraphQL API
+event_types:
+  Account:
+  - Account.Created
+  - Account.Updated
+  - Account.Closing
+  - Account.Closed
+  AccountHolder:
+  - AccountHolder.Created
+  - AccountHolder.Updated
+  AccountMembership:
+  - AccountMembership.Created
+  - AccountMembership.Bound
+  - AccountMembership.Updated
+  - AccountMembership.Suspended
+  - AccountMembership.Resumed
+  - AccountMembership.Disabled
+  AccountSetting:
+  - AccountSetting.Updated
+  AccountInvoice:
+  - AccountInvoice.Generated
+  - AccountInvoice.Updated
+  AccountStatement:
+  - AccountStatement.Generated
+  - AccountStatement.Voided
+  Card:
+  - Card.Created
+  - Card.Updated
+  Consent:
+  - Consent.Started
+  - Consent.Created
+  - Consent.Granted
+  - Consent.Refused
+  - Consent.Canceled
+  - Consent.Expired
+  Onboarding:
+  - Onboarding.Created
+  - Onboarding.Updated
+  Merchant:
+  - MerchantProfile.Created
+  - MerchantProfile.Updated
+  - MerchantProfileUpdateRequest.Created
+  - MerchantProfileUpdateRequest.Updated
+  - MerchantPayment.Created
+  - MerchantPayment.Authorized
+  - MerchantPayment.Captured
+  - MerchantPayment.Rejected
+  - MerchantPayment.Disputed
+  - MerchantPaymentLink.Created
+  - MerchantPaymentLink.Updated
+  - MerchantPaymentMethod.Created
+  - MerchantPaymentMethod.Updated
+  - MerchantPaymentMethodUpdateRequest.Created
+  - MerchantPaymentMethodUpdateRequest.Updated
+  Payments:
+  - StandingOrder.Scheduled
+  - StandingOrder.Canceled
+  - ReceivedDirectDebitMandate.Created
+  - ReceivedDirectDebitMandate.Updated
+  Funding:
+  - FundingSource.Created
+  - FundingSource.Updated
+  - FundingLimitSettingsChangeRequest.Created
+  - FundingLimitSettingsChangeRequest.Updated
+  CapitalDeposit:
+  - CapitalDepositCaseEvent.Created
+  - CapitalDepositCaseEvent.Updated
+  - CapitalDepositCaseEvent.Canceled
+  - CapitalDepositDocument.Created
+  - CapitalDepositDocument.Updated
+  Documents:
+  - SupportingDocument.Updated
+  - SupportingDocumentCollection.Created
+  - SupportingDocumentCollection.Updated
+  Shareholder:
+  - Shareholder.Created
+  - Shareholder.Updated

@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/swan-io + https://docs.swan.io
+description: >-
+  Client-side and prebuilt/embeddable surfaces Swan provides so partners can
+  ship banking UIs without building them from scratch. Distinct from the
+  server-side API; these are hosted flows, a design system and React tooling.
+families:
+- name: Hosted onboarding & banking interfaces
+  kind: hosted / prebuilt web app
+  description: >-
+    White-label onboarding and banking interfaces partners can deploy and
+    customize (the swan-partner-frontend project) to embed account opening and
+    web banking.
+  source: https://github.com/swan-io/swan-partner-frontend
+- name: Lake design system
+  kind: React component / design-system library
+  description: Swan's design system and UI utilities used to build banking interfaces.
+  loader: "@swan-io/lake (npm)"
+  source: https://github.com/swan-io/lake
+- name: Card Design Studio
+  kind: tool / embeddable card personalization
+  description: Tooling to design and personalize physical/virtual card artwork.
+  source: https://github.com/swan-io/card-design-studio
+- name: React Native in-app browser
+  kind: mobile component
+  description: >-
+    In-app browser module (Chrome Custom Tabs / SFSafariViewController) used to
+    run Swan's OAuth and consent flows inside native apps.
+  loader: "@swan-io/react-native-browser (npm)"
+  source: https://github.com/swan-io/react-native-browser
+notes: >-
+  swan-partner-mobile (a React Native integration demo) is archived and is a
+  reference sample rather than a shipped component.

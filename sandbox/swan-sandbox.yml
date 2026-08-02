@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/developers/tools
+description: >-
+  Swan provides a full Sandbox environment that mirrors Live, with its own
+  GraphQL endpoint and OAuth credentials, plus tooling to simulate the external
+  events that would otherwise be triggered by real people and banking rails.
+environments:
+  live_endpoint: https://api.swan.io/live-partner/graphql
+  sandbox_endpoint: https://api.swan.io/sandbox-partner/graphql
+  separation: >-
+    Sandbox and Live are fully separate environments with distinct GraphQL
+    endpoints and OAuth client credentials. Sandbox mutations behave like Live
+    but never trigger real-world effects.
+testing_api:
+  description: >-
+    A simulation API (a set of GraphQL mutations, sandbox-only) that triggers
+    events that normally happen outside Swan, letting partners run end-to-end
+    tests without the user or the Dashboard.
+  explorer: https://explorer.swan.io/?tab=test-api
+  example_mutations:
+  - simulateIncomingSepaCreditTransferReception
+  requires: user access token (sometimes a project access token is enough)
+event_simulator:
+  description: >-
+    A Dashboard tool (Developers > Event Simulator) to trigger external events
+    manually.
+  simulatable_events:
+  - Changing an account holder's verification status
+  - Changing a funding limit
+  - Receiving a Direct Debit cancellation
+  - Requesting a Direct Debit refund
+  - Approving a Merchant profile and submitted payment product
+  - Manually provisioning a card for Apple or Google Pay
+  - Receiving an incoming SEPA Credit Transfer
+sandbox_users:
+  description: >-
+    Simulated users created via the Dashboard or Testing API to model different
+    onboarding, identity-endorsement and membership-permission scenarios.
+  settings: [first name, last name, birthdate, nationality, auto consent]
+  auto_consent: >-
+    When enabled, consent is granted automatically to speed development
+    (removes repeated consent approval).
+notes: >-
+  Swan does not publish static magic test card numbers or IBANs the way card
+  acquirers do; sandbox testing is driven by the Testing API, Event Simulator
+  and configurable Sandbox users. No test values are invented here.

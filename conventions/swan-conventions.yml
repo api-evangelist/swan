@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.swan.io/developers/using-api
+description: >-
+  Cross-cutting request/response semantics for Swan's Partner GraphQL API.
+authentication:
+  style: OAuth 2.0 Bearer token in the Authorization header
+  header: 'Authorization: Bearer {access token}'
+  token_types: [project access token (client_credentials), user access token (authorization_code)]
+  detail: authentication/swan-authentication.yml
+api_style:
+  protocol: GraphQL
+  endpoints:
+    live: https://api.swan.io/live-partner/graphql
+    sandbox: https://api.swan.io/sandbox-partner/graphql
+  explorer: https://explorer.swan.io/
+  operations: single POST endpoint; queries and mutations selected by document
+error_model:
+  style: >-
+    GraphQL union / rejection payloads. Mutations return a union of a
+    success payload (e.g. ...SuccessPayload) and typed rejection objects
+    (e.g. ForbiddenRejection, ValidationRejection) selected with inline
+    fragments; transport-level auth failures return HTTP 401 Unauthorized.
+  detail: errors/swan-error-codes.yml
+pagination:
+  style: Relay cursor connections
+  pattern: >-
+    List queries expose Relay-style connections (edges/node, pageInfo with
+    hasNextPage/endCursor) driven by first/after (and last/before) arguments.
+idempotency:
+  supported: false
+  notes: >-
+    Swan's API is GraphQL and does not document a generic idempotency-key
+    header. Safe repetition is handled per operation (e.g. resource status
+    transitions) rather than via a client-supplied idempotency key.
+webhooks:
+  supported: true
+  secret_header: x-swan-secret
+  detail: asyncapi/swan-webhooks.yml
+versioning:
+  scheme: continuous / non-breaking GraphQL evolution with a dated changelog
+  detail: changelog/swan-changelog.yml
+  deprecation: lifecycle/swan-lifecycle.yml
+environments:
+  separation: distinct sandbox and live GraphQL endpoints and OAuth credentials
+  testing: Testing API + Event Simulator (sandbox only)
+  detail: sandbox/swan-sandbox.yml

@@ -1,0 +1,53 @@
+# Swan
+
+> Swan is a European banking-as-a-service (BaaS) and embedded-finance platform that lets software companies embed banking -- business accounts with native IBANs, physical and virtual cards, SEPA payments and direct debits, and white-label onboarding -- through a single OAuth 2.0 protected GraphQL Partner API. Swan is a licensed electronic money institution (France ACPR 86245); deposits are safeguarded at BNP Paribas and covered by the French FGDR.
+
+## API
+
+- [Partner API (GraphQL, live)](https://api.swan.io/live-partner/graphql): Production GraphQL endpoint for accounts, cards, payments, onboarding and consent.
+- [Partner API (GraphQL, sandbox)](https://api.swan.io/sandbox-partner/graphql): Sandbox GraphQL endpoint mirroring live.
+- [API Explorer](https://explorer.swan.io/): Interactive GraphQL explorer, including the Testing API tab.
+
+## Docs
+
+- [Documentation](https://docs.swan.io/): Guides, concepts and topic docs.
+- [API Reference](https://api-reference.swan.io/): Generated GraphQL schema reference (queries, mutations, objects, enums).
+- [Getting started](https://docs.swan.io/developers): Choose an integration and start building.
+- [Authentication](https://docs.swan.io/developers/using-api/authentication): OAuth 2.0 project and user access tokens.
+- [Webhooks](https://docs.swan.io/developers/using-api/webhooks): Subscribe to external events; x-swan-secret signing.
+- [Testing API & Event Simulator](https://docs.swan.io/developers/tools): Sandbox simulation tooling.
+- [Changelog](https://docs.swan.io/changelog): Dated release notes.
+
+## Auth
+
+- OAuth 2.0 authorization server: https://oauth.swan.io/
+- OpenID Connect discovery: https://oauth.swan.io/.well-known/openid-configuration
+- Token endpoint: https://oauth.swan.io/oauth2/token (client_credentials for project tokens, authorization_code for user tokens)
+
+## Company
+
+- [Website](https://swan.io/)
+- [Pricing](https://swan.io/pricing)
+- [Blog](https://swan.io/blog)
+- [PSD2 API](https://swan.io/psd2-api)
+- [Status](https://status.swan.io)
+- [Trust Center](https://trust.swan.io/)
+- [GitHub](https://github.com/swan-io)
+- [Support](https://support.swan.io/hc/en-150)
+- [Terms & Conditions](https://swan.io/termsandconditions)
+- [Privacy Policy](https://swan.io/privacy-policy)
+
+## Repo artifacts
+
+- Authentication profile: authentication/swan-authentication.yml
+- OAuth scopes: scopes/swan-scopes.yml
+- Webhooks / event catalog: asyncapi/swan-webhooks.yml
+- API conventions: conventions/swan-conventions.yml
+- Error model: errors/swan-error-codes.yml
+- Lifecycle: lifecycle/swan-lifecycle.yml
+- Changelog: changelog/swan-changelog.yml
+- Sandbox: sandbox/swan-sandbox.yml
+- Components: components/swan-components.yml
+- Conformance: conformance/swan-conformance.yml
+- Packages / SDKs: packages/swan-packages.yml
+- Well-known: well-known/swan-well-known.yml

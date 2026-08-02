@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/org/swan-io + https://github.com/swan-io
+notes: >-
+  Swan's API is GraphQL; it does not ship a monolithic "banking SDK". Its
+  first-party open-source packages are React / React Native / TypeScript
+  libraries (design system, GraphQL client, forms, functional utilities) that
+  power its embeddable interfaces and integrations. @swan-io/graphql-client is
+  the closest to an API client library.
+packages:
+- language: javascript
+  registry: npm
+  name: "@swan-io/graphql-client"
+  url: https://www.npmjs.com/package/@swan-io/graphql-client
+  install: npm install @swan-io/graphql-client
+  description: A simple, typesafe GraphQL client for React.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/lake"
+  url: https://www.npmjs.com/package/@swan-io/lake
+  install: npm install @swan-io/lake
+  description: Swan's design system and UI utilities.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/use-form"
+  url: https://www.npmjs.com/package/@swan-io/use-form
+  install: npm install @swan-io/use-form
+  description: A simple, fast and opinionated form library for React & React Native.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/boxed"
+  url: https://www.npmjs.com/package/@swan-io/boxed
+  install: npm install @swan-io/boxed
+  description: Utility types for functional TypeScript (Option, Result, AsyncData).
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/chicane"
+  url: https://www.npmjs.com/package/@swan-io/chicane
+  install: npm install @swan-io/chicane
+  description: A simple and safe router for React and TypeScript.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/request"
+  url: https://www.npmjs.com/package/@swan-io/request
+  install: npm install @swan-io/request
+  description: Wrapper for XMLHttpRequest with better data structures.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@swan-io/react-native-browser"
+  url: https://www.npmjs.com/package/@swan-io/react-native-browser
+  install: npm install @swan-io/react-native-browser
+  description: In-app browser module for React Native (Chrome Custom Tabs / SFSafariViewController).
+  official: true
