@@ -2,12 +2,10 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://github.com/swan-io/mcp-graphql-tools
-description: >-
-  Swan does not (as of this pass) publish a hosted, remote MCP server for its
-  Partner API. It does maintain an open-source library, swan-io/mcp-graphql-tools,
-  for building MCP tools over a GraphQL API. The candidate tool surface below is
-  derived from Swan's documented GraphQL operation areas as a starting point for
-  an MCP server; it is not an official Swan MCP endpoint.
+description: Swan does not (as of this pass) publish a hosted, remote MCP server for its Partner API.
+  It does maintain an open-source library, swan-io/mcp-graphql-tools, for building MCP tools over a GraphQL
+  API. The candidate tool surface below is derived from Swan's documented GraphQL operation areas as a
+  starting point for an MCP server; it is not an official Swan MCP endpoint.
 server:
   name: swan
   transport: stdio
@@ -33,7 +31,11 @@ tools:
 - name: add_webhook_subscription
   description: Subscribe an endpoint to Swan webhook event types.
   source_operation: graphql:addWebhookSubscription
-notes: >-
-  source_operation values reference Swan GraphQL query/mutation names observed
-  in the docs, changelog and API reference. Mark status published and add a real
-  url only if Swan ships a hosted MCP endpoint.
+notes: source_operation values reference Swan GraphQL query/mutation names observed in the docs, changelog
+  and API reference. Mark status published and add a real url only if Swan ships a hosted MCP endpoint.
+deployment:
+  mode: none
+  verified: derived
+  tools: 6
+  checked: '2026-08-12'
+  source: catalog MCP census
