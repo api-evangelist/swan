@@ -51,6 +51,17 @@ tags:
 - SEPA
 - GraphQL
 - Europe
+- Account
+tags_raw:
+- Company
+- Banking as a Service
+- Embedded Finance
+- Fintech
+- Payments
+- Cards
+- SEPA
+- GraphQL
+- Europe
 - Accounts
 maintainers:
 - FN: Kin Lane
@@ -69,6 +80,12 @@ apis:
   humanURL: https://docs.swan.io/api
   baseURL: https://api.swan.io/live-partner/graphql
   tags:
+  - GraphQL
+  - Banking
+  - Payments
+  - Cards
+  - Account
+  tags_raw:
   - GraphQL
   - Banking
   - Payments
